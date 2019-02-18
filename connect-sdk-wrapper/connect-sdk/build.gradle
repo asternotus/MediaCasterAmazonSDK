@@ -30,8 +30,8 @@ dependencies {
     implementation files('libs/AmazonFling.jar')
     implementation files('libs/WhisperPlay.jar')
 
-    implementation project(':connect-sdk-wrapper:samsungmultiscreen')
-    implementation project(':connect-sdk-wrapper:samsunglegacymultiscreen')
+    implementation project(':MediaCasterAmazonSDK:connect-sdk-wrapper:samsungmultiscreen')
+    implementation project(':MediaCasterAmazonSDK:connect-sdk-wrapper:samsunglegacymultiscreen')
 
     //samsung smart view
 
@@ -51,5 +51,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.7'
 
     implementation group: 'cz.msebera.android' , name: 'httpclient', version: '4.4.1.1'
-    implementation project(path: ':KudosUtils')
+    implementation project(path: ':MediaCasterAmazonSDK:KudosUtils')
 }

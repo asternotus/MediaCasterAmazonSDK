@@ -1,14 +1,14 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion rootProject.ext.compileSdkVersion as Integer
+    buildToolsVersion rootProject.ext.buildToolsVersion as String
 
     useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 27
+        minSdkVersion rootProject.ext.minSdkVersion as Integer
+        targetSdkVersion rootProject.ext.targetSdkVersion as Integer
         versionCode 1
         versionName "1.0"
     }
@@ -28,8 +28,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
 
-    implementation project(path: ':connect-sdk-wrapper:simplejson')
-    implementation project(path: ':KudosUtils')
+    implementation project(path: ':MediaCasterAmazonSDK:connect-sdk-wrapper:simplejson')
+    implementation project(path: ':MediaCasterAmazonSDK:KudosUtils')
 
     implementation group: 'cz.msebera.android' , name: 'httpclient', version: '4.4.1.1'
 }

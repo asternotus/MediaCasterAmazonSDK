@@ -28,5 +28,5 @@ dependencies {
 
     implementation 'com.github.beyka:androidtiffbitmapfactory:0.9.6.1-b10d'
 
-    implementation project(path: ':KudosUtils')
+    implementation project(path: ':MediaCasterAmazonSDK:KudosUtils')
 }
