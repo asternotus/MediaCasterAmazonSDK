@@ -54,7 +54,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':KudosUtils')
+    implementation project(path: ':MediaCasterAmazonSDK:KudosUtils')
 
-    androidTestCompile 'com.squareup.assertj:assertj-android:1.0.0'
+    androidTestImplementation 'com.squareup.assertj:assertj-android:1.0.0'
 }

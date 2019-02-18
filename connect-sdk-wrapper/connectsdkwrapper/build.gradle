@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion rootProject.ext.compileSdkVersion as Integer
+    buildToolsVersion rootProject.ext.buildToolsVersion as String
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 27
+        minSdkVersion rootProject.ext.minSdkVersion as Integer
+        targetSdkVersion rootProject.ext.targetSdkVersion as Integer
         versionCode 1
         versionName "1.0"
     }
@@ -24,7 +24,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'io.reactivex:rxjava:1.1.6'
-    implementation project(':kudos-cast')
-    implementation project(':connect-sdk-wrapper:connect-sdk')
-    implementation project(path: ':KudosUtils')
+    implementation project(':MediaCasterAmazonSDK:kudos-cast')
+    implementation project(':MediaCasterAmazonSDK:connect-sdk-wrapper:connect-sdk')
+    implementation project(path: ':MediaCasterAmazonSDK:KudosUtils')
 }
