@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    configurations {
+        all*.exclude group: 'javax/jmdns', module: 'android-smartview-sdk-2.4.1'
+    }
+}
+
+dependencies {
+//    implementation fileTree(dir: 'libs', include: '*.jar')
+    implementation files('libs/AmazonFling.jar')
+    implementation files('libs/WhisperPlay.jar')
+
+    implementation project(':connect-sdk-wrapper:samsungmultiscreen')
+    implementation project(':connect-sdk-wrapper:samsunglegacymultiscreen')
+
+    //samsung smart view
+
+    //old samsung multiscreen sample
+//    implementation files('libs/multiscreen-android-1.1.11.jar')
+
+    //samsung convergence
+    implementation files('libs/cybergarage-upnp-core-2.1.1.jar')
+
+//    implementation files('libs/javax.jmdns_3.4.1-patch2.jar')
+//    implementation files('libs/java-websocket-patch.jar')
+
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:mediarouter-v7:26.1.0'
+    implementation 'com.google.android.gms:play-services-cast:11.6.0'
+    implementation 'com.google.code.gson:gson:2.7'
+
+    implementation group: 'cz.msebera.android' , name: 'httpclient', version: '4.4.1.1'
+    implementation project(path: ':KudosUtils')
+}

@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+
+    sourceSets.main {
+        jni.srcDirs = [] //disable automatic ndk-build
+        jniLibs.srcDirs = ['libs']
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    publishNonDefault true
+
+    flavorDimensions("abi")
+    productFlavors {
+        x86 {
+            dimension = "abi"
+            ndk {
+                abiFilter "x86"
+            }
+        }
+
+        arm {
+            dimension = "abi"
+            ndk {
+                abiFilter "armeabi-v7a"
+            }
+        }
+
+        universal {
+        }
+    }
+
+    sourceSets {
+        x86.assets.srcDirs = ['assets/x86-assets/']
+        arm.assets.srcDirs = ['assets/arm-assets/']
+        universal.assets.srcDirs = ['assets/universal-assets/']
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':KudosUtils')
+
+    androidTestCompile 'com.squareup.assertj:assertj-android:1.0.0'
+}
